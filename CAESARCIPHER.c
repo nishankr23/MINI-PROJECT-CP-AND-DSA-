@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<ctype.h>
+#define SIZE 26
 
 void encode(char a[],int b) 
 {
@@ -29,7 +30,7 @@ void encode(char a[],int b)
         enval=val+b;
         if(enval>122) 
         {
-            enval=97+(enval-123);
+            enval=97+(enval-123)%SIZE;
         }
         arr[i]=(char)enval;
     }
@@ -47,7 +48,7 @@ void decode(char a[], int b)
        deval=val-b;
        if(deval<97) 
        {
-            deval=123-(97-deval);
+            deval=123-(97-deval)%SIZE;
        }
         arr[i]=(char)deval;
     }
